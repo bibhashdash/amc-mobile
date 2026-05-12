@@ -1,12 +1,15 @@
-import { Stack } from 'expo-router';
-import {useFonts, FamiljenGrotesk_400Regular, FamiljenGrotesk_700Bold} from "@expo-google-fonts/familjen-grotesk";
+import {Stack} from 'expo-router';
+import {Oswald_400Regular, Oswald_700Bold, useFonts} from "@expo-google-fonts/oswald";
+import {SchibstedGrotesk_700Bold} from "@expo-google-fonts/schibsted-grotesk";
+
 import * as SplashScreen from 'expo-splash-screen';
 import {useEffect} from 'react';
 
 export default function RootLayout() {
     const [loaded, error] = useFonts({
-        FamiljenGrotesk_400Regular,
-        FamiljenGrotesk_700Bold,
+        Oswald_400Regular,
+        Oswald_700Bold,
+        'BrandFont': SchibstedGrotesk_700Bold
     });
 
     useEffect(() => {

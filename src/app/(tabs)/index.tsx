@@ -1,6 +1,8 @@
 import {globalStyles} from "../../styles/global"
-import {ScrollView, View, Text} from "react-native";
+import {ScrollView, Text, View} from "react-native";
 import {ScreenHeaderRight} from "../../components/screenHeaderRight";
+import {HomeFinder} from "@/components/homeFinder";
+
 export default function HomeScreen() {
     return (
         <ScrollView style={globalStyles.container}>
@@ -8,7 +10,12 @@ export default function HomeScreen() {
                 <Text style={globalStyles.title}>Home</Text>
                 <ScreenHeaderRight />
             </View>
-            <Text style={globalStyles.title}>It&#39;s okay to talk</Text>
+            <Text style={{
+                fontSize: 48,
+                color: '#ffffff',
+                fontFamily: 'BrandFont'
+            }}>It&#39;s okay to talk</Text>
+            <HomeFinder />
         </ScrollView>
     )
 }

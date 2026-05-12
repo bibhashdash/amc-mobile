@@ -20,7 +20,7 @@ export const globalStyles = StyleSheet.create({
     title: {
         fontSize: 28,
         color: colors.text,
-        fontFamily: 'FamiljenGrotesk_700Bold'
+        fontFamily: 'Oswald_700Bold'
     },
     sectionTitle: {
         fontSize: 18,
@@ -28,6 +28,12 @@ export const globalStyles = StyleSheet.create({
         color: colors.textSecondary,
         marginTop: 30,
         marginBottom: 16,
+        fontFamily: 'Oswald_700Bold'
+    },
+    text: {
+        fontSize: 16,
+        color: colors.text,
+        fontFamily: 'Oswald_400Regular'
     },
     empty: {
         color: colors.textSecondary,
@@ -39,9 +45,16 @@ export const globalStyles = StyleSheet.create({
         alignItems: 'center',
     },
     input: {
-        height: 40,
-        margin: 12,
+        paddingVertical: 18,
         borderWidth: 1,
         padding: 10,
+        borderColor: colors.textSecondary,
+        borderRadius: 8,
+        color: colors.text,
     },
+    activeFinderTab: {
+        color: colors.primary,
+        borderBottomColor: colors.primary,
+        borderBottomWidth: 2
+    }
 });
