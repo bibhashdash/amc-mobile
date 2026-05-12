@@ -19,8 +19,8 @@ export const globalStyles = StyleSheet.create({
     },
     title: {
         fontSize: 28,
-        fontWeight: 'bold',
         color: colors.text,
+        fontFamily: 'FamiljenGrotesk_700Bold'
     },
     sectionTitle: {
         fontSize: 18,
@@ -37,5 +37,11 @@ export const globalStyles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
     },
 });

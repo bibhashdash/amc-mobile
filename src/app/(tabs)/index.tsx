@@ -8,6 +8,7 @@ export default function HomeScreen() {
                 <Text style={globalStyles.title}>Home</Text>
                 <ScreenHeaderRight />
             </View>
+            <Text style={globalStyles.title}>It&#39;s okay to talk</Text>
         </ScrollView>
     )
 }
