@@ -1,26 +1,66 @@
-import {View, TextInput, Text} from "react-native";
+import {View, TextInput, Text, Platform} from "react-native";
 import {colors, globalStyles} from "@/styles/global";
-import {useState} from "react";
+import {useState, useRef} from "react";
 import {LocateIcon} from "lucide-react-native";
 import {ResultsView} from "@/components/resultsView";
+import {Picker, PickerProps} from "@react-native-picker/picker";
+import {SearchInput} from "@/components/SearchInput";
+import {getData} from "@/utils/api";
+import {SearchResult} from "@/utils/data";
 
 export const HomeFinder = ({}) => {
     const [text, setText] = useState<string>('');
+    const [selectedRange, setSelectedRange] = useState<number>(0);
+    const [data, setData] = useState<SearchResult[]>([]);
+    const pickerRef = useRef<Picker<number>>(null);
+    const handleSubmit = (text: string) => {
+        setData(getData(String(selectedRange)))
+    }
     return (
         <View style={{
             marginTop: 16
         }}>
             <View style={{marginBottom: 8, flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
                 <Text style={{...globalStyles.text, color: colors.primary}}>Find a group</Text>
-                <LocateIcon color={colors.primary} size={24} />
+                <View style={{flexDirection: "row", alignItems: "center"}}>
+                    <View style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        borderWidth: 1,           // Move border here
+                        borderColor: colors.primary,
+                        borderRadius: 8,
+                        paddingHorizontal: 0,     // Give it some breathing room// Force a consistent height
+                        height: 35,
+                        marginRight: 8
+                    }}>
+                        <Picker
+                            ref={pickerRef}
+                            mode="dropdown"
+                            enabled={true}
+                            style={{
+                                width: 150,
+                                backgroundColor: 'transparent',
+                                color: colors.text,
+                            }}
+                            dropdownIconColor={colors.primary}
+                            selectedValue={selectedRange}
+                            onValueChange={(itemValue, itemIndex) =>
+                                setSelectedRange(itemValue)
+                            }>
+                            <Picker.Item label="Range" value={0} color={Platform.OS === 'android' ? '#000' : colors.text} />
+                            <Picker.Item label="5 miles" value={5} color={Platform.OS === 'android' ? '#000' : colors.text} />
+                            <Picker.Item label="10 miles" value={10} color={Platform.OS === 'android' ? '#000' : colors.text} />
+                            <Picker.Item label="25 miles" value={25} color={Platform.OS === 'android' ? '#000' : colors.text} />
+                            <Picker.Item label="50 miles" value={50} color={Platform.OS === 'android' ? '#000' : colors.text} />
+                            <Picker.Item label="100 miles" value={100} color={Platform.OS === 'android' ? '#000' : colors.text} />
+                        </Picker>
+                    </View>
+                    <LocateIcon color={colors.primary} size={24} />
+                </View>
             </View>
-            <TextInput
-                style={globalStyles.input}
-                onChangeText={setText}
-                value={text}
-            />
+           <SearchInput text={text} setText={setText} onSubmit={text => handleSubmit(text)} />
             <View style={{marginTop: 16}}>
-                <ResultsView />
+                <ResultsView data={data} />
             </View>
         </View>
     )

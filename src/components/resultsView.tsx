@@ -1,8 +1,15 @@
 import {useState} from 'react'
 import {View, Text, Pressable} from "react-native";
 import {globalStyles, colors} from "@/styles/global";
+import {ListView} from "@/components/listView";
+import {MapView} from "@/components/mapView";
+import {SearchResult} from "@/utils/data";
 
-export const ResultsView = () => {
+interface Props {
+    data: SearchResult[];
+}
+
+export const ResultsView = ({data}: Props) => {
     const [active, setActive] = useState<number>(0);
     const getTabActiveClass = (id: number) => {
         return active === id
@@ -28,7 +35,7 @@ export const ResultsView = () => {
                             fontSize: 16,
                             ...getTabActiveClass(0)
                         }}>
-                            Map View
+                            List View
                         </Text>
                     </Pressable>
                 </View>
@@ -40,15 +47,25 @@ export const ResultsView = () => {
                             fontSize: 16,
                             ...getTabActiveClass(1)
                         }}>
-                            List View
+                            Map View
                         </Text>
                     </Pressable>
                 </View>
             </View>
 
             {/* Tab Panes */}
-            <View>
-
+            <View style={{
+                borderColor: colors.textSecondary,
+                borderRadius: 8,
+                borderWidth: 1,
+                height: 300,
+                marginTop: 8
+            }}>
+                {
+                    active === 0
+                    ? <ListView data={data} />
+                        : <MapView />
+                }
             </View>
         </View>
     )

@@ -1,6 +1,7 @@
 import {colors} from "../../styles/global"
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
+import {ScreenHeaderRight} from "@/components/screenHeaderRight";
 
 export default function TabLayout() {
     return (

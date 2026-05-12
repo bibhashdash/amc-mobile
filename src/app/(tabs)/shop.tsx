@@ -1,12 +1,11 @@
 import {ScrollView, Text, View} from "react-native";
 import {globalStyles} from "@/styles/global";
+import {ScreenWrapper} from "@/components/screenWrapper";
 
 export default function ShopScreen() {
     return (
-        <ScrollView style={globalStyles.container}>
-            <View style={globalStyles.header}>
-                <Text style={globalStyles.title}>Shop</Text>
-            </View>
-        </ScrollView>
+        <ScreenWrapper title="Shop">
+            <View style={globalStyles.container}></View>
+        </ScreenWrapper>
     )
 }

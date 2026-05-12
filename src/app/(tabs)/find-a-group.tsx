@@ -1,11 +1,10 @@
 import {globalStyles} from "../../styles/global"
 import {ScrollView, View, Text} from "react-native";
+import {ScreenWrapper} from "@/components/screenWrapper";
 export default function FindAGroupScreen() {
     return (
-        <ScrollView style={globalStyles.container}>
-            <View style={globalStyles.header}>
-                <Text style={globalStyles.title}>Find a group</Text>
-            </View>
-        </ScrollView>
+        <ScreenWrapper title="Find a Group">
+            <View style={globalStyles.container}></View>
+        </ScreenWrapper>
     )
 }

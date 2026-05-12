@@ -1,11 +1,10 @@
 import {globalStyles} from "../../styles/global"
 import {ScrollView, View, Text} from "react-native";
+import {ScreenWrapper} from "@/components/screenWrapper";
 export default function GetInvolvedScreen() {
     return (
-        <ScrollView style={globalStyles.container}>
-            <View style={globalStyles.header}>
-                <Text style={globalStyles.title}>Get Involved</Text>
-            </View>
-        </ScrollView>
+        <ScreenWrapper title="Get Involved">
+            <View style={globalStyles.container}></View>
+        </ScreenWrapper>
     )
 }

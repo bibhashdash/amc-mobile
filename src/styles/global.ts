@@ -14,8 +14,7 @@ export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.background,
-        paddingTop: 60,
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
     },
     title: {
         fontSize: 28,
@@ -56,5 +55,9 @@ export const globalStyles = StyleSheet.create({
         color: colors.primary,
         borderBottomColor: colors.primary,
         borderBottomWidth: 2
+    },
+    pickerItem: {
+        color: colors.textSecondary,
+        fontSize: 16,
     }
 });

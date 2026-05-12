@@ -1,12 +1,11 @@
 import {ScrollView, Text, View} from "react-native";
 import {globalStyles} from "@/styles/global";
+import {ScreenWrapper} from "@/components/screenWrapper";
 
 export default function HelpScreen() {
     return (
-        <ScrollView style={globalStyles.container}>
-            <View style={globalStyles.header}>
-                <Text style={globalStyles.title}>Help</Text>
-            </View>
-        </ScrollView>
+        <ScreenWrapper title="Help">
+            <View style={globalStyles.container}></View>
+        </ScreenWrapper>
     )
 }
