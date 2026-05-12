@@ -1,15 +1,14 @@
-import {FlatList, Text} from "react-native";
+import {FlatList} from "react-native";
 import {SearchResult} from "@/utils/data";
-import {colors} from "@/styles/global";
+import {SearchResultListItem} from "@/components/searchResultListItem";
 
 interface ListViewProps {
     data: SearchResult[];
 }
 export const ListView = ({data}: ListViewProps) => {
     return (
-        <FlatList data={data} renderItem={({item}) => <Text style={{
-            color: colors.primary,
-            fontSize: 18
-        }}>{item.address}</Text>} />
+        <FlatList keyExtractor={(item) => item.id} nestedScrollEnabled={true} data={data} renderItem={({item}) =>
+            <SearchResultListItem searchResult={item} />
+        } />
     )
 }

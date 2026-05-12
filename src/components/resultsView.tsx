@@ -55,11 +55,7 @@ export const ResultsView = ({data}: Props) => {
 
             {/* Tab Panes */}
             <View style={{
-                borderColor: colors.textSecondary,
-                borderRadius: 8,
-                borderWidth: 1,
-                height: 300,
-                marginTop: 8
+                marginTop: 8,
             }}>
                 {
                     active === 0
