@@ -1,3 +1,4 @@
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {Stack} from 'expo-router';
 import {Oswald_400Regular, Oswald_700Bold, useFonts} from "@expo-google-fonts/oswald";
 import {SchibstedGrotesk_700Bold} from "@expo-google-fonts/schibsted-grotesk";
@@ -22,8 +23,10 @@ export default function RootLayout() {
         return null;
     }
     return (
+        <SafeAreaProvider>
         <Stack screenOptions={{headerShown: false}}>
             <Stack.Screen name='(tabs)' />
         </Stack>
+        </SafeAreaProvider>
     );
 }

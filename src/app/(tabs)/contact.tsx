@@ -1,10 +1,6 @@
 import {globalStyles} from "../../styles/global"
 import {ScrollView, View, Text} from "react-native";
-import {ScreenWrapper} from "@/components/screenWrapper";
+import {MasterScreen} from "@/components/masterScreen";
 export default function ContactScreen() {
-    return (
-        <ScreenWrapper title="Contact">
-            <View style={globalStyles.container}></View>
-        </ScreenWrapper>
-    )
+    return <MasterScreen title="Contact" />
 }
